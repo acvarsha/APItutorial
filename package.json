@@ -5,15 +5,28 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "node src/app.js"
+    "dev": "node src/app.js",
+    "test": "mocha",
+    "test:watch": "mocha --watch"
   },
-  "keywords": ["ecommerce", "api", "jwt", "express"],
+  "keywords": [
+    "ecommerce",
+    "api",
+    "jwt",
+    "express"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",
-    "bcryptjs": "^2.4.3",
     "swagger-ui-express": "^4.6.3"
+  },
+  "devDependencies": {
+    "chai": "^6.2.2",
+    "mocha": "^11.7.6",
+    "mochawesome": "^7.1.4",
+    "supertest": "^7.2.2"
   }
 }
