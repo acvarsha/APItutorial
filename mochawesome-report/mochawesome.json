@@ -1,0 +1,314 @@
+{
+  "stats": {
+    "suites": 7,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-06-15T10:05:46.430Z",
+    "end": "2026-06-15T10:05:46.516Z",
+    "duration": 86,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "15d92a8e-1b05-452a-9bad-17fb25b873db",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d6ee56d0-785f-430e-a47f-25046ce93595",
+          "title": "Path Coverage: Authentication",
+          "fullFile": "C:\\Users\\VBhosale\\Documents\\projects\\APItutorial\\test\\pathCoverage\\auth.test.js",
+          "file": "\\test\\pathCoverage\\auth.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "f305109e-f227-439f-b07d-8bda3f5cacdd",
+              "title": "POST /api/auth/register",
+              "fullFile": "C:\\Users\\VBhosale\\Documents\\projects\\APItutorial\\test\\pathCoverage\\auth.test.js",
+              "file": "\\test\\pathCoverage\\auth.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should register a new user and return 201 with token",
+                  "fullTitle": "Path Coverage: Authentication POST /api/auth/register should register a new user and return 201 with token",
+                  "timedOut": false,
+                  "duration": 33,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const newUser = {\n  email: 'testuser@example.com',\n  password: 'testPassword123',\n  name: 'Test User'\n};\nrequest(API_URL)\n  .post('/api/auth/register')\n  .send(newUser)\n  .expect(201)\n  .end((err, res) => {\n    if (err) return done(err);\n    \n    expect(res.body).to.have.property('message');\n    expect(res.body.message).to.include('registered successfully');\n    expect(res.body).to.have.property('user');\n    expect(res.body.user).to.have.property('id');\n    expect(res.body.user).to.have.property('email');\n    expect(res.body.user.email).to.equal(newUser.email);\n    expect(res.body).to.have.property('token');\n    expect(res.body.token).to.be.a('string');\n    \n    authToken = res.body.token;\n    done();\n  });",
+                  "err": {},
+                  "uuid": "0719c305-9396-48f7-9dfd-381aad908fe7",
+                  "parentUUID": "f305109e-f227-439f-b07d-8bda3f5cacdd",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0719c305-9396-48f7-9dfd-381aad908fe7"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 33,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            },
+            {
+              "uuid": "33f44da7-7956-4454-9308-e18c81940842",
+              "title": "POST /api/auth/login",
+              "fullFile": "C:\\Users\\VBhosale\\Documents\\projects\\APItutorial\\test\\pathCoverage\\auth.test.js",
+              "file": "\\test\\pathCoverage\\auth.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should login existing user and return 200 with token",
+                  "fullTitle": "Path Coverage: Authentication POST /api/auth/login should login existing user and return 200 with token",
+                  "timedOut": false,
+                  "duration": 8,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const credentials = {\n  email: 'user1@example.com',\n  password: 'hashed_password_1'\n};\nrequest(API_URL)\n  .post('/api/auth/login')\n  .send(credentials)\n  .expect(200)\n  .end((err, res) => {\n    if (err) return done(err);\n    \n    expect(res.body).to.have.property('message');\n    expect(res.body.message).to.include('Login successful');\n    expect(res.body).to.have.property('user');\n    expect(res.body.user).to.have.property('id');\n    expect(res.body.user).to.have.property('email');\n    expect(res.body.user.email).to.equal(credentials.email);\n    expect(res.body).to.have.property('token');\n    expect(res.body.token).to.be.a('string');\n    \n    authToken = res.body.token;\n    done();\n  });",
+                  "err": {},
+                  "uuid": "f8676964-5394-4541-9f0b-d61d5d2d42b6",
+                  "parentUUID": "33f44da7-7956-4454-9308-e18c81940842",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "f8676964-5394-4541-9f0b-d61d5d2d42b6"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 8,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "7dbb6cd5-7e58-419b-a2f9-c334e6c545b0",
+          "title": "Path Coverage: Checkout",
+          "fullFile": "C:\\Users\\VBhosale\\Documents\\projects\\APItutorial\\test\\pathCoverage\\checkout.test.js",
+          "file": "\\test\\pathCoverage\\checkout.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "4fd6f0b1-d1e1-4cdd-ba74-0283f2f00afa",
+              "title": "POST /api/checkout",
+              "fullFile": "C:\\Users\\VBhosale\\Documents\\projects\\APItutorial\\test\\pathCoverage\\checkout.test.js",
+              "file": "\\test\\pathCoverage\\checkout.test.js",
+              "beforeHooks": [
+                {
+                  "title": "\"before all\" hook in \"POST /api/checkout\"",
+                  "fullTitle": "Path Coverage: Checkout POST /api/checkout \"before all\" hook in \"POST /api/checkout\"",
+                  "timedOut": false,
+                  "duration": 4,
+                  "state": null,
+                  "speed": null,
+                  "pass": false,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "// Get auth token before running checkout tests\ngetAuthToken((err, token) => {\n  if (err) return done(err);\n  done();\n});",
+                  "err": {},
+                  "uuid": "9111ea89-301b-42fc-981a-43e2c7f30a1c",
+                  "parentUUID": "4fd6f0b1-d1e1-4cdd-ba74-0283f2f00afa",
+                  "isHook": true,
+                  "skipped": false
+                }
+              ],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should process checkout with cash payment and apply 10% discount",
+                  "fullTitle": "Path Coverage: Checkout POST /api/checkout should process checkout with cash payment and apply 10% discount",
+                  "timedOut": false,
+                  "duration": 6,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const checkoutData = {\n  items: [\n    { productId: 1, quantity: 1 },\n    { productId: 2, quantity: 2 }\n  ],\n  paymentMethod: 'cash'\n};\nrequest(API_URL)\n  .post('/api/checkout')\n  .set('Authorization', `Bearer ${authToken}`)\n  .send(checkoutData)\n  .expect(200)\n  .end((err, res) => {\n    if (err) return done(err);\n    \n    expect(res.body).to.have.property('message');\n    expect(res.body.message).to.include('Checkout successful');\n    expect(res.body).to.have.property('order');\n    expect(res.body.order).to.have.property('id');\n    expect(res.body.order).to.have.property('userId');\n    expect(res.body.order).to.have.property('items');\n    expect(res.body.order.items).to.be.an('array');\n    expect(res.body.order).to.have.property('paymentMethod');\n    expect(res.body.order.paymentMethod).to.equal('cash');\n    expect(res.body.order).to.have.property('originalPrice');\n    expect(res.body.order).to.have.property('discount');\n    expect(res.body.order).to.have.property('discountPercentage');\n    expect(res.body.order.discountPercentage).to.equal(10); // 10% discount for cash\n    expect(res.body.order).to.have.property('finalPrice');\n    expect(res.body.order).to.have.property('status');\n    expect(res.body.order.status).to.equal('completed');\n    expect(res.body.order).to.have.property('createdAt');\n    \n    done();\n  });",
+                  "err": {},
+                  "uuid": "10889ac8-186d-4957-86ea-5d5797df74ae",
+                  "parentUUID": "4fd6f0b1-d1e1-4cdd-ba74-0283f2f00afa",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "should process checkout with credit card payment without discount",
+                  "fullTitle": "Path Coverage: Checkout POST /api/checkout should process checkout with credit card payment without discount",
+                  "timedOut": false,
+                  "duration": 5,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const checkoutData = {\n  items: [\n    { productId: 3, quantity: 1 }\n  ],\n  paymentMethod: 'credit_card'\n};\nrequest(API_URL)\n  .post('/api/checkout')\n  .set('Authorization', `Bearer ${authToken}`)\n  .send(checkoutData)\n  .expect(200)\n  .end((err, res) => {\n    if (err) return done(err);\n    \n    expect(res.body).to.have.property('message');\n    expect(res.body).to.have.property('order');\n    expect(res.body.order).to.have.property('paymentMethod');\n    expect(res.body.order.paymentMethod).to.equal('credit_card');\n    expect(res.body.order).to.have.property('discountPercentage');\n    expect(res.body.order.discountPercentage).to.equal(0); // No discount for credit card\n    expect(res.body.order).to.have.property('status');\n    expect(res.body.order.status).to.equal('completed');\n    \n    done();\n  });",
+                  "err": {},
+                  "uuid": "b5c8c6f3-cebb-4ebf-b5df-900794c27852",
+                  "parentUUID": "4fd6f0b1-d1e1-4cdd-ba74-0283f2f00afa",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "10889ac8-186d-4957-86ea-5d5797df74ae",
+                "b5c8c6f3-cebb-4ebf-b5df-900794c27852"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 11,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        },
+        {
+          "uuid": "66205a90-ff99-410b-bac8-3eb027ab17f6",
+          "title": "Path Coverage: Health Check",
+          "fullFile": "C:\\Users\\VBhosale\\Documents\\projects\\APItutorial\\test\\pathCoverage\\healthcheck.test.js",
+          "file": "\\test\\pathCoverage\\healthcheck.test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "3bbf81b9-5e35-47d5-a474-a1215adf4c36",
+              "title": "GET /api/healthcheck",
+              "fullFile": "C:\\Users\\VBhosale\\Documents\\projects\\APItutorial\\test\\pathCoverage\\healthcheck.test.js",
+              "file": "\\test\\pathCoverage\\healthcheck.test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return 200 and health status",
+                  "fullTitle": "Path Coverage: Health Check GET /api/healthcheck should return 200 and health status",
+                  "timedOut": false,
+                  "duration": 5,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(API_URL)\n  .get('/api/healthcheck')\n  .expect(200)\n  .end((err, res) => {\n    if (err) return done(err);\n    \n    expect(res.body).to.have.property('status');\n    expect(res.body.status).to.equal('healthy');\n    expect(res.body).to.have.property('message');\n    expect(res.body).to.have.property('timestamp');\n    \n    done();\n  });",
+                  "err": {},
+                  "uuid": "7ccf987a-7721-4c87-8d54-db4403eca610",
+                  "parentUUID": "3bbf81b9-5e35-47d5-a474-a1215adf4c36",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "7ccf987a-7721-4c87-8d54-db4403eca610"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 5,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 10000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.6"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "[object Object]": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

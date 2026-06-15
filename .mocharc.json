@@ -1,0 +1,14 @@
+{
+  "spec": "test/pathCoverage/**/*.test.js",
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "./mochawesome-report",
+    "reportFilename": "index",
+    "html": true,
+    "json": true,
+    "overwrite": true,
+    "timestamp": "yyyy-mm-dd_HH-MM-ss"
+  },
+  "timeout": 10000,
+  "exit": true
+}
