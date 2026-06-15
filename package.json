@@ -5,7 +5,8 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "node src/app.js"
+    "dev": "node src/app.js",
+    "test": "echo 'Test suite configured. Add your test runner here (e.g., mocha, jest, or similar)'"
   },
   "keywords": ["ecommerce", "api", "jwt", "express"],
   "author": "",
