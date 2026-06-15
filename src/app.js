@@ -1,5 +1,7 @@
 // Main Express Application
 const express = require('express');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('../swagger.json');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -10,6 +12,19 @@ app.use(express.json());
 app.use((req, res, next) => {
   console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
   next();
+});
+
+// Swagger UI documentation
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument, {
+  swaggerOptions: {
+    url: '/api-docs/swagger.json'
+  }
+}));
+
+// Swagger JSON endpoint
+app.get('/api-docs/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerDocument);
 });
 
 // Import routes
@@ -27,6 +42,7 @@ app.get('/', (req, res) => {
   res.status(200).json({
     message: 'E-Commerce API',
     version: '1.0.0',
+    documentation: 'GET /api-docs',
     endpoints: {
       health: 'GET /api/healthcheck',
       register: 'POST /api/auth/register',
@@ -50,7 +66,7 @@ app.use((err, req, res, next) => {
 // Start server
 const server = app.listen(PORT, () => {
   console.log(`\n🚀 E-Commerce API is running on http://localhost:${PORT}`);
-  console.log(`📚 API Documentation: http://localhost:${PORT}/api/healthcheck\n`);
+  console.log(`📚 Swagger API Documentation: http://localhost:${PORT}/api-docs\n`);
 });
 
 // Graceful shutdown
