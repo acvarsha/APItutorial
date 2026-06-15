@@ -1,0 +1,19 @@
+{
+  "name": "ecommerce-api",
+  "version": "1.0.0",
+  "description": "REST API for e-commerce platform with JWT authentication and checkout functionality",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node src/app.js"
+  },
+  "keywords": ["ecommerce", "api", "jwt", "express"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "bcryptjs": "^2.4.3",
+    "swagger-ui-express": "^4.6.3"
+  }
+}
